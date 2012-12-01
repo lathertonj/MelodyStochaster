@@ -116,7 +116,7 @@ MainComponent::MainComponent () : playThread("Play Thread")
     addAndMakeVisible(noteSpeedSlider);
     noteSpeedSlider->addListener(this); 
     
-    playResultButton = new TextButton("Play", "Play a stochastic melody based on the source");
+    playResultButton = new TextButton("Play Melody", "Play a stochastic melody based on the source");
     playResultButton->setClickingTogglesState(true);
     addAndMakeVisible(playResultButton);
     playResultButton->addListener(this);
@@ -199,6 +199,10 @@ void MainComponent::buttonClicked(Button* button) {
         loadFile();
     } else if (button == recordButton) {
         if (recordButton->getToggleState()) {
+            if (device == NULL) {
+                recordButton->setToggleState(false, false);
+                return;
+            }
             recordButton->setButtonText("Recording");
             recordButton->setTooltip("Finish recording a new melody for stochastion");
             goodSource = false;
@@ -241,7 +245,7 @@ void MainComponent::buttonClicked(Button* button) {
                 playThread.startThread(10);                    
             }
         } else {
-            playResultButton->setButtonText("Play");
+            playResultButton->setButtonText("Play Melody");
             playResultButton->setTooltip("Play a stochastic melody based on the source");
             if (goodSource) {
                 //Logic for stopping
