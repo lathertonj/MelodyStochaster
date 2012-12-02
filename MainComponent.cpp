@@ -1,6 +1,6 @@
 //
 //  MainComponent.cpp
-//  MidiStochaster
+//  MelodyStochaster
 //
 //  Created by Jack Atherton on 11/11/12.
 //  Copyright (c) 2012. All rights reserved.
@@ -261,7 +261,7 @@ void MainComponent::buttonClicked(Button* button) {
 
 
 void MainComponent::launchChuck() {
-    String s = "chuck /Applications/MidiStochaster.app/Contents/Resources/Play";
+    String s = "chuck /Applications/MelodyStochaster.app/Contents/Resources/Play";
     if (playBackMode2Button->getToggleState()) {
         s+= "2";
     }

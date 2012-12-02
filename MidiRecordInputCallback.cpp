@@ -1,6 +1,6 @@
 //
 //  MidiRecordInputCallback.cpp
-//  Mini MidiStochaster
+//  MelodyStochaster
 //
 //  Created by Jack Atherton on 11/10/12.
 //  Copyright (c) 2012 N/A. All rights reserved.

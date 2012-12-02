@@ -29,6 +29,7 @@ void MidiStochaster::init(MidiMessageSequence const& originalTrack) {
     if (numEvents == 0) {
         //No Events handling
         //...
+        goodSource = false;
         return;
     }
     
@@ -106,6 +107,7 @@ void MidiStochaster::init(MidiMessageSequence const& originalTrack) {
         }
         negRestProbability = .9;
     }
+    goodSource = true;
 }
 
 void MidiStochaster::addNote(MidiMessageSequence::MidiEventHolder* note, int i, MidiMessageSequence const& track) {
@@ -185,6 +187,9 @@ MidiMessageSequence* MidiStochaster::createMelody(int minOctaveOffset, int maxOc
     
     double currentTime = 0.0;
     MidiMessageSequence* melody = new MidiMessageSequence(starter);
+    if (!goodSource) {
+        return melody;
+    }
     
     while (randomDouble(0,1) < stopProbability) {
         int notePitch = pitches->at(randomInt(0, pitches->size() - 1)) + 12 * currentOctaveOffset;

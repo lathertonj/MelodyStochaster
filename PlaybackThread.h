@@ -1,6 +1,6 @@
 //
 //  PlaybackThread.h
-//  Mini MidiStochaster
+//  MelodyStochaster
 //
 //  Created by Jack Atherton on 10/22/12.
 //  Copyright (c) 2012 N/A. All rights reserved.
@@ -71,7 +71,7 @@ public:
                 double length = noteOff->getTimeStamp() - thisEventTime;
                 double velGain = globalGain * currentMessage->getVelocity() / 127.0;
                 double cutoff = MidiMessage::getMidiNoteInHertz((baseCutoff + (1.0 - baseCutoff) * cutoffSensitivity * ((double)currentMessage->getVelocity()) / 127.0) * 145.0);
-                String s = "chuck /Applications/MidiStochaster.app/Contents/Resources/PlayNote.ck:" + String(MidiMessage::getMidiNoteInHertz(currentMessage->getNoteNumber()+12)) + ":" + String(length) + ":" + String(velGain*oGain[0]) + ":" + String(velGain*oGain[1]) + ":" + String(velGain*oGain[2]) + ":" + String(release) + ":" + String(cutoff) + " &";
+                String s = "chuck /Applications/MelodyStochaster.app/Contents/Resources/PlayNote.ck:" + String(MidiMessage::getMidiNoteInHertz(currentMessage->getNoteNumber()+12)) + ":" + String(length) + ":" + String(velGain*oGain[0]) + ":" + String(velGain*oGain[1]) + ":" + String(velGain*oGain[2]) + ":" + String(release) + ":" + String(cutoff) + " &";
                 std::system(s.getCharPointer());
             }
             wait(std::max(0.0, msPerTick * (thisEventTime - lastEventTime)));

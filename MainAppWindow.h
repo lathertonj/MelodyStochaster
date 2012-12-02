@@ -1,6 +1,6 @@
 //
 //  MainAppWindow.h
-//  Mini MidiStochaster
+//  MelodyStochaster
 //
 //  Created by Jack Atherton on 10/18/12.
 //  Copyright (c) 2012 N/A. All rights reserved.

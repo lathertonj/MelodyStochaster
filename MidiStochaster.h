@@ -1,6 +1,5 @@
 //
 //  MidiStochaster.h
-//  PROJ NAME
 //
 //  Created by Jack Atherton on 10/13/12.
 //  Copyright (c) 2012 Jack Atherton. All rights reserved.
@@ -51,6 +50,7 @@ private:
     int numNegRest;
     double negRestProbability;
     MidiMessageSequence starter;
+    bool goodSource;
     
     void init(MidiMessageSequence const& track);
     void addRest(double restLength);

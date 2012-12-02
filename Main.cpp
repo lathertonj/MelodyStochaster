@@ -50,7 +50,7 @@ public:
     //==============================================================================
     const String getApplicationName()
     {
-        return "MidiStochaster";
+        return "MelodyStochaster";
     }
 
     const String getApplicationVersion()
